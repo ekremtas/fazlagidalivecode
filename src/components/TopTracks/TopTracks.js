@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Highcharts from "highcharts";
-import HighchartsReact from "highcharts-react-official";
+import BaseHighcharts from "../BaseHighcharts/BaseHighcharts";
 
 const axios = require("axios");
 
@@ -35,6 +34,8 @@ const TopTracks = () => {
         console.log(error);
       });
   }, [country]);
+
+
 
   const options = {
     chart: {
@@ -92,7 +93,7 @@ const TopTracks = () => {
         </label>
       </form>
       {tracks.length !== 0 ? (
-        <HighchartsReact highcharts={Highcharts} options={options} />
+        <BaseHighcharts tracks={tracks} text={"Top 20"} />
       ) : (
         <h1>Bilgi Bulunamadı</h1>
       )}
