@@ -1,10 +1,50 @@
-export const PAGE_LOADING = "GET_TRACKS";
+const axios = require("axios");
 
+const API = "https://ws.audioscrobbler.com/2.0/";
+const API_KEY = "97cee60fe2193b383cd8377301901a80";
+
+export const PAGE_LOADING = "PAGE_LOADING";
+export const GET_TRACKS = "GET_TRACKS";
 
 export const pageLoading = () => {
   return (dispatch) => {
     dispatch({
       type: PAGE_LOADING,
     });
+  };
+};
+
+export const getTracks = (country, topnumber) => {
+  return (dispatch) => {
+    dispatch({
+      type: PAGE_LOADING,
+    });
+    axios
+      .get(
+        `${API}?method=geo.gettoptracks&country=${country}&api_key=${API_KEY}&format=json&limit=${topnumber}`
+      )
+      .then((result) => {
+        if (result.data.tracks !== undefined) {
+          dispatch({
+            type: GET_TRACKS,
+            payload: {
+              data: result.data.tracks.track,
+              title: `Top ${topnumber} Tracks in ${country.toUpperCase()}`,
+            },
+          });
+        }else{
+            dispatch({
+                type: GET_TRACKS,
+                payload: {
+                  data: [],
+                  title: `No track for country of "${country.toUpperCase()}"`,
+                },
+              });
+        }
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      });
   };
 };

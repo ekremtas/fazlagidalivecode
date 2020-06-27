@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BaseHighcharts, useInput, LastfmForm } from "../../components";
 import { Container } from "reactstrap";
 import { connect } from "react-redux";
-import { pageLoading } from "../../redux/actions";
+import { pageLoading, getTracks } from "../../redux/actions";
 
 const axios = require("axios");
 
@@ -10,7 +10,6 @@ const API = "https://ws.audioscrobbler.com/2.0/";
 const API_KEY = "97cee60fe2193b383cd8377301901a80";
 
 const LastfmPage = (props) => {
-  const [tracks, setTracks] = useState({});
   const [artists, setArtist] = useState({});
 
   const [submitform, setSubmitform] = useState(1);
@@ -27,33 +26,9 @@ const LastfmPage = (props) => {
   useEffect(() => {
     // Make a request for a user with a given ID
     if (submitform === 1) {
-      setSubmitform(0);
-      axios
-        .get(
-          `${API}?method=geo.gettoptracks&country=${country}&api_key=${API_KEY}&format=json&limit=${topnumber}`
-        )
-        .then((response) => {
-          // handle success
-          if (response.data.tracks !== undefined) {
-            const track_res = response.data.tracks.track.map((track) => {
-              return {
-                name: track.name,
-                y: Number(track.listeners),
-              };
-            });
-            setTracks({
-              data: track_res,
-              title: `Top ${topnumber} Tracks in ${country.toUpperCase()}`,
-            });
-          } else {
-            setTracks({});
-          }
-        })
-        .catch((error) => {
-          // handle error
-          console.log(error);
-        });
+      props.getTracks(country, topnumber);
 
+      setSubmitform(0);
       axios
         .get(
           `${API}?method=geo.gettopartists&country=${country}&api_key=${API_KEY}&format=json&limit=${topnumber}`
@@ -81,11 +56,10 @@ const LastfmPage = (props) => {
           console.log(error);
         });
     }
-  }, [country, submitform, topnumber]);
+  }, [country, props, submitform, topnumber]);
 
   return (
     <Container>
-      <h1>{props.loading}</h1>
       <LastfmForm
         inputs={{
           countryInput: setCountry,
@@ -94,19 +68,19 @@ const LastfmPage = (props) => {
           submitform: submitform,
         }}
       />
-      {tracks.data !== undefined ? (
+      {props.tracks.length !== 0 ? (
         <BaseHighcharts
-          data={{
-            data: tracks.data,
-            chart: "column",
-            title: tracks.title,
-            name: "Tracks",
-            xAxisType: "category",
-            yAxisTitle: "Total percent market share",
-          }}
-        />
+        data={{
+          data: props.tracks,
+          chart: "column",
+          title: props.tracktitle,
+          name: "Tracks",
+          xAxisType: "category",
+          yAxisTitle: "Total percent market share",
+        }}
+      />
       ) : (
-        <h1>Bilgi Bulunamadı</h1>
+        <h1>{props.tracktitle}</h1>
       )}
 
       {artists.data !== undefined ? (
@@ -128,14 +102,17 @@ const LastfmPage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { loading } = state.chartsReducer;
-  return{
-    loading
-  }
+  const { loading, tracks , tracktitle } = state.chartsReducer;
+  return {
+    loading,
+    tracks,
+    tracktitle
+  };
 };
 
 const mapDispatchToProps = {
   pageLoading,
+  getTracks
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LastfmPage);
