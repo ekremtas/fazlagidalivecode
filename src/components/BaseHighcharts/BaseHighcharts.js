@@ -8,17 +8,17 @@ const BaseHighcharts = (props) => {
 
   const options = {
     chart: {
-      type: "column",
+      type: data.chart,
     },
     title: {
-      text: "Top 20",
+      text: data.title,
     },
     xAxis: {
-      type: "category",
+      type: data.xAxisType,
     },
     yAxis: {
       title: {
-        text: "Total percent market share",
+        text: data.yAxisTitle,
       },
     },
     legend: {
@@ -42,9 +42,9 @@ const BaseHighcharts = (props) => {
 
     series: [
       {
-        name: "Tracks",
+        name: data.name,
         colorByPoint: true,
-        data: data,
+        data: data.data,
       },
     ],
   };
