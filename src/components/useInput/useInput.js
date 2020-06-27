@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import {
+  Input,
+} from "reactstrap";
 
-const useInput = ({ type /*...*/ }) => {
-  const [value, setValue] = useState("");
+const useInput = ({ type, firstvalue /*...*/ }) => {
+  const [value, setValue] = useState(firstvalue ? firstvalue : null);
   const input = (
-    <input
+    <Input
       value={value}
       onChange={(e) => setValue(e.target.value)}
       type={type}
