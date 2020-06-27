@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { BaseHighcharts, useInput, LastfmForm } from "../../components";
 import { Container } from "reactstrap";
+import { connect } from "react-redux";
+import { pageLoading } from "../../redux/actions";
 
 const axios = require("axios");
 
 const API = "https://ws.audioscrobbler.com/2.0/";
 const API_KEY = "97cee60fe2193b383cd8377301901a80";
 
-const LastfmPage = () => {
+const LastfmPage = (props) => {
   const [tracks, setTracks] = useState({});
   const [artists, setArtist] = useState({});
 
@@ -83,6 +85,7 @@ const LastfmPage = () => {
 
   return (
     <Container>
+      <h1>{props.loading}</h1>
       <LastfmForm
         inputs={{
           countryInput: setCountry,
@@ -124,4 +127,15 @@ const LastfmPage = () => {
   );
 };
 
-export default LastfmPage;
+const mapStateToProps = (state) => {
+  const { loading } = state.chartsReducer;
+  return{
+    loading
+  }
+};
+
+const mapDispatchToProps = {
+  pageLoading,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LastfmPage);
