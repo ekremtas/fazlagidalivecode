@@ -4,7 +4,7 @@ import { Container } from "reactstrap";
 
 const axios = require("axios");
 
-const API = "http://ws.audioscrobbler.com/2.0/";
+const API = "https://ws.audioscrobbler.com/2.0/";
 const API_KEY = "97cee60fe2193b383cd8377301901a80";
 
 const LastfmPage = () => {
