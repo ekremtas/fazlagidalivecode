@@ -1,15 +1,20 @@
 import * as Actions from "./actions";
 
 const initialState = {
-  loading: false,
+  loading: { LastfmPage: false },
   tracks: [],
-  title: ""
+  title: {},
+  artists: [],
 };
 
 export const chartsReducer = (state = initialState, action) => {
   switch (action.type) {
     case Actions.PAGE_LOADING:
-      return { ...state, loading: true };
+      return { ...state, loading: { ...state.loading, LastfmPage: true } };
+    case Actions.ARTISTS_LOADING:
+      return { ...state, loading: { ...state.loading, ArtistsPage: true } };
+    case Actions.TRACKS_LOADING:
+      return { ...state, loading: { ...state.loading, TracksPage: true } };
     case Actions.GET_TRACKS:
       return {
         ...state,
@@ -19,8 +24,20 @@ export const chartsReducer = (state = initialState, action) => {
             y: Number(track.listeners),
           };
         }),
-        tracktitle: action.payload.title,
-        loading: false,
+        title: { ...state.title, track: action.payload.title },
+        loading: { ...state.loading, TracksPage: false },
+      };
+    case Actions.GET_ARTISTS:
+      return {
+        ...state,
+        artists: action.payload.data.map((artist) => {
+          return {
+            name: artist.name,
+            y: Number(artist.listeners),
+          };
+        }),
+        title: { ...state.title, artist: action.payload.title },
+        loading: { ...state.loading, ArtistsPage: false },
       };
     default:
       return state;
