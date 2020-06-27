@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/fazlagidalivecode/static/css/main.5f361e03.chunk.css",
-    "main.js": "/fazlagidalivecode/static/js/main.8867dfc3.chunk.js",
-    "main.js.map": "/fazlagidalivecode/static/js/main.8867dfc3.chunk.js.map",
+    "main.css": "/fazlagidalivecode/static/css/main.d1b05096.chunk.css",
+    "main.js": "/fazlagidalivecode/static/js/main.9dd707f8.chunk.js",
+    "main.js.map": "/fazlagidalivecode/static/js/main.9dd707f8.chunk.js.map",
     "runtime-main.js": "/fazlagidalivecode/static/js/runtime-main.39243b34.js",
     "runtime-main.js.map": "/fazlagidalivecode/static/js/runtime-main.39243b34.js.map",
-    "static/css/2.92a0e85f.chunk.css": "/fazlagidalivecode/static/css/2.92a0e85f.chunk.css",
-    "static/js/2.ec45edaa.chunk.js": "/fazlagidalivecode/static/js/2.ec45edaa.chunk.js",
-    "static/js/2.ec45edaa.chunk.js.map": "/fazlagidalivecode/static/js/2.ec45edaa.chunk.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/fazlagidalivecode/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.2f920a89.chunk.js": "/fazlagidalivecode/static/js/2.2f920a89.chunk.js",
+    "static/js/2.2f920a89.chunk.js.map": "/fazlagidalivecode/static/js/2.2f920a89.chunk.js.map",
     "index.html": "/fazlagidalivecode/index.html",
-    "precache-manifest.09024afab70cbaf4f0b77887d592079b.js": "/fazlagidalivecode/precache-manifest.09024afab70cbaf4f0b77887d592079b.js",
+    "precache-manifest.f24e5a2d1343199f80bfe86d46b2dabc.js": "/fazlagidalivecode/precache-manifest.f24e5a2d1343199f80bfe86d46b2dabc.js",
     "service-worker.js": "/fazlagidalivecode/service-worker.js",
-    "static/css/2.92a0e85f.chunk.css.map": "/fazlagidalivecode/static/css/2.92a0e85f.chunk.css.map",
-    "static/css/main.5f361e03.chunk.css.map": "/fazlagidalivecode/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.ec45edaa.chunk.js.LICENSE.txt": "/fazlagidalivecode/static/js/2.ec45edaa.chunk.js.LICENSE.txt"
+    "static/css/2.17e5ed98.chunk.css.map": "/fazlagidalivecode/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.d1b05096.chunk.css.map": "/fazlagidalivecode/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.2f920a89.chunk.js.LICENSE.txt": "/fazlagidalivecode/static/js/2.2f920a89.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.39243b34.js",
-    "static/css/2.92a0e85f.chunk.css",
-    "static/js/2.ec45edaa.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.8867dfc3.chunk.js"
+    "static/css/2.17e5ed98.chunk.css",
+    "static/js/2.2f920a89.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.9dd707f8.chunk.js"
   ]
 }
