@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "86ddd0e3af5d74aa8de99e7d43c158b3",
+    "revision": "9cfc0f4a8dff11333d870b9f6c3d5612",
     "url": "/fazlagidalivecode/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fazlagidalivecode/static/css/2.92a0e85f.chunk.css"
   },
   {
-    "revision": "528b3f135c1108c904e8",
+    "revision": "e49e2c415e3e74ad6df5",
     "url": "/fazlagidalivecode/static/css/main.5f361e03.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fazlagidalivecode/static/js/2.ec45edaa.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "528b3f135c1108c904e8",
-    "url": "/fazlagidalivecode/static/js/main.93b9a2e1.chunk.js"
+    "revision": "e49e2c415e3e74ad6df5",
+    "url": "/fazlagidalivecode/static/js/main.8867dfc3.chunk.js"
   },
   {
     "revision": "07892605b31fef9c1ecf",
