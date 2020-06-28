@@ -8,7 +8,7 @@ import { setArtTraForm } from "../../redux/actions";
 
 const validationSchema = Yup.object().shape({
   country: Yup.string().required("Country is a required field").min(2),
-  topnumber: Yup.number().required("Topnumber is a required field").min(1),
+  topnumber: Yup.number().positive().integer().required("Topnumber is a required field"),
 });
 
 const LastfmForm = (props) => {
@@ -36,7 +36,7 @@ const LastfmForm = (props) => {
         /* and other goodies */
       }) => (
         <Form className="m-5">
-          <h1>Highchart Challenge</h1>
+          <h1 className="mb-4 display-2">Highchart Challenge</h1>
           <Row>
             <Col md="6">
               <TextInputFormik
@@ -67,6 +67,7 @@ const LastfmForm = (props) => {
             Submit
           </Button>
         </Form>
+        
       )}
     </Formik>
   );

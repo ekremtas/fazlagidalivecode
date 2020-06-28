@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { LastfmForm, TopTracks, TopArtist } from "../../components";
 import { Container } from "reactstrap";
 import { connect } from "react-redux";
-import { pageLoading, getTracks, getArtists } from "../../redux/actions";
+import { getTracks, getArtists } from "../../redux/actions";
 
 const LastfmPage = (props) => {
   useEffect(() => {
@@ -17,7 +17,11 @@ const LastfmPage = (props) => {
   return (
     <Container>
       <LastfmForm />
+      <hr/>
+
       <TopTracks />
+      <hr/>
+
       <TopArtist />
     </Container>
   );
@@ -31,7 +35,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  pageLoading,
   getTracks,
   getArtists,
 };
