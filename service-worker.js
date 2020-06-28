@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fazlagidalivecode/precache-manifest.f7415ed1557495a958d92cc59ee41604.js"
+  "/fazlagidalivecode/precache-manifest.dbf7361223894fb55a7b4354abf0a82e.js"
 );
 
 self.addEventListener('message', (event) => {

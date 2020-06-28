@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "173a2a6169f7ae5a6dba55c88ca22900",
+    "revision": "11d1077ee0e0fd66a7e842c0538a01c7",
     "url": "/fazlagidalivecode/index.html"
   },
   {
-    "revision": "6003fc9e055dea8fa587",
+    "revision": "e63f1fc52c2fce2e2398",
     "url": "/fazlagidalivecode/static/css/2.17e5ed98.chunk.css"
   },
   {
-    "revision": "dabe4e85c40b64c9c5f8",
+    "revision": "470464846d47f9e94103",
     "url": "/fazlagidalivecode/static/css/main.d1b05096.chunk.css"
   },
   {
-    "revision": "6003fc9e055dea8fa587",
-    "url": "/fazlagidalivecode/static/js/2.d33727a9.chunk.js"
+    "revision": "e63f1fc52c2fce2e2398",
+    "url": "/fazlagidalivecode/static/js/2.5dfc966a.chunk.js"
   },
   {
     "revision": "cacaf3f01dd3bd8237006f7c58951c1c",
-    "url": "/fazlagidalivecode/static/js/2.d33727a9.chunk.js.LICENSE.txt"
+    "url": "/fazlagidalivecode/static/js/2.5dfc966a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "dabe4e85c40b64c9c5f8",
-    "url": "/fazlagidalivecode/static/js/main.cd379232.chunk.js"
+    "revision": "470464846d47f9e94103",
+    "url": "/fazlagidalivecode/static/js/main.14d3f651.chunk.js"
   },
   {
     "revision": "07892605b31fef9c1ecf",
