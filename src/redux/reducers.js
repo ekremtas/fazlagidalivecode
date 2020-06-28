@@ -1,10 +1,11 @@
 import * as Actions from "./actions";
 
 const initialState = {
-  loading: { LastfmPage: false },
+  loading: {},
   tracks: [],
   title: {},
   artists: [],
+  highchartform: { country: "turkey", topnumber: 10 },
 };
 
 export const chartsReducer = (state = initialState, action) => {
@@ -38,6 +39,15 @@ export const chartsReducer = (state = initialState, action) => {
         }),
         title: { ...state.title, artist: action.payload.title },
         loading: { ...state.loading, ArtistsPage: false },
+      };
+    case Actions.SET_ART_TRA_FORM:
+      return {
+        ...state,
+        highchartform: {
+          ...state.highchartform,
+          country: action.payload.country,
+          topnumber: Number(action.payload.topnumber),
+        },
       };
     default:
       return state;

@@ -1,65 +1,39 @@
-import React, { useEffect, useState } from "react";
-import {
-  useInput,
-  LastfmForm,
-  TopTracks,
-  TopArtist,
-} from "../../components";
+import React, { useEffect } from "react";
+import { LastfmForm, TopTracks, TopArtist } from "../../components";
 import { Container } from "reactstrap";
 import { connect } from "react-redux";
-import { pageLoading, getTracks , getArtists} from "../../redux/actions";
+import { pageLoading, getTracks, getArtists } from "../../redux/actions";
 
 const LastfmPage = (props) => {
-  const [submitform, setSubmitform] = useState(1);
-
-  const [country, setCountry] = useInput({
-    type: "text",
-    firstvalue: "TURKEY",
-  });
-  const [topnumber, setTopnumber] = useInput({
-    type: "number",
-    firstvalue: 10,
-  });
-
   useEffect(() => {
     // Make a request for a user with a given ID
-    if (submitform === 1) {
-      props.getTracks(country, topnumber);
-      props.getArtists(country, topnumber);
-      setSubmitform(0);     
-    }
-  }, [country, props, submitform, topnumber]);
+    props.getTracks(props.highchartform.country, props.highchartform.topnumber);
+    props.getArtists(
+      props.highchartform.country,
+      props.highchartform.topnumber
+    );
+  }, [props]);
 
   return (
     <Container>
-      <LastfmForm
-        inputs={{
-          countryInput: setCountry,
-          topnumberInput: setTopnumber,
-          setSubmitform: setSubmitform,
-          submitform: submitform,
-        }}
-      />
-
+      <LastfmForm />
       <TopTracks />
-
       <TopArtist />
-
     </Container>
   );
 };
 
 const mapStateToProps = (state) => {
-  const { loading } = state.chartsReducer;
+  const { highchartform } = state.chartsReducer;
   return {
-    loading,
+    highchartform,
   };
 };
 
 const mapDispatchToProps = {
   pageLoading,
   getTracks,
-  getArtists
+  getArtists,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LastfmPage);
