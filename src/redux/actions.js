@@ -1,19 +1,15 @@
+import * as Actions from "./types";
+
 const axios = require("axios");
 
 const API = "https://ws.audioscrobbler.com/2.0/";
 const API_KEY = "97cee60fe2193b383cd8377301901a80";
 
-export const PAGE_LOADING = "PAGE_LOADING";
-export const ARTISTS_LOADING = "ARTISTS_LOADING";
-export const TRACKS_LOADING = "TRACKS_LOADING";
-export const GET_TRACKS = "GET_TRACKS";
-export const GET_ARTISTS = "GET_ARTISTS";
-export const SET_ART_TRA_FORM = "SET_ART_TRA_FORM";
 
 export const pageLoading = () => {
   return (dispatch) => {
     dispatch({
-      type: PAGE_LOADING,
+      type: Actions.PAGE_LOADING,
     });
   };
 };
@@ -21,7 +17,7 @@ export const pageLoading = () => {
 export const getTracks = (country, topnumber) => {
   return (dispatch) => {
     dispatch({
-      type: TRACKS_LOADING,
+      type: Actions.TRACKS_LOADING,
     });
     axios
       .get(
@@ -30,7 +26,7 @@ export const getTracks = (country, topnumber) => {
       .then((result) => {
         if (result.data.tracks !== undefined) {
           dispatch({
-            type: GET_TRACKS,
+            type: Actions.GET_TRACKS,
             payload: {
               data: result.data.tracks.track,
               title: `Top ${topnumber} Tracks in ${country.toUpperCase()}`,
@@ -38,7 +34,7 @@ export const getTracks = (country, topnumber) => {
           });
         } else {
           dispatch({
-            type: GET_TRACKS,
+            type: Actions.GET_TRACKS,
             payload: {
               data: [],
               title: `No track for country of "${country.toUpperCase()}"`,
@@ -56,7 +52,7 @@ export const getTracks = (country, topnumber) => {
 export const getArtists = (country, topnumber) => {
   return (dispatch) => {
     dispatch({
-      type: ARTISTS_LOADING,
+      type: Actions.ARTISTS_LOADING,
     });
     axios
       .get(
@@ -65,7 +61,7 @@ export const getArtists = (country, topnumber) => {
       .then((result) => {
         if (result.data.topartists !== undefined) {
           dispatch({
-            type: GET_ARTISTS,
+            type: Actions.GET_ARTISTS,
             payload: {
               data: result.data.topartists.artist,
               title: `Top ${topnumber} Artist in ${country.toUpperCase()}`,
@@ -73,7 +69,7 @@ export const getArtists = (country, topnumber) => {
           });
         } else {
           dispatch({
-            type: GET_ARTISTS,
+            type: Actions.GET_ARTISTS,
             payload: {
               data: [],
               title: `No artist for country of "${country.toUpperCase()}"`,
@@ -91,7 +87,7 @@ export const getArtists = (country, topnumber) => {
 export const setArtTraForm = (inputs) => {
   return (dispatch) => {
     dispatch({
-      type: SET_ART_TRA_FORM,
+      type: Actions.SET_ART_TRA_FORM,
       payload: inputs,
     });
   };

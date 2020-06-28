@@ -6,7 +6,7 @@ const TextInputFormik = ({ label, example, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <FormGroup>
-      <Label>{label}</Label>
+      <Label >{label}</Label>
       <Input
         {...field}
         {...props}

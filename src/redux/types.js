@@ -1,0 +1,6 @@
+export const PAGE_LOADING = "PAGE_LOADING";
+export const ARTISTS_LOADING = "ARTISTS_LOADING";
+export const TRACKS_LOADING = "TRACKS_LOADING";
+export const GET_TRACKS = "GET_TRACKS";
+export const GET_ARTISTS = "GET_ARTISTS";
+export const SET_ART_TRA_FORM = "SET_ART_TRA_FORM";
